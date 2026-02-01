@@ -5,19 +5,11 @@
         <!-- Show a splash screen on the activity. Automatically removed when
              the Flutter engine draws its first frame -->
         <item name="android:windowBackground">@drawable/launch_background</item>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
+
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
-<<<<<<< HEAD
-=======
->>>>>>> ce1324508197ebc3d8bb391ffed1559e456be913
-=======
->>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
          This theme determines the color of the Android Window while your
