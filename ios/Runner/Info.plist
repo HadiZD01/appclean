@@ -2,6 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -49,6 +52,7 @@
 		<key>UIStatusBarHidden</key>
 		<false/>
 	</dict>
+<<<<<<< HEAD
 =======
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -96,4 +100,6 @@
 	<true/>
 </dict>
 >>>>>>> ce1324508197ebc3d8bb391ffed1559e456be913
+=======
+>>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
 </plist>
