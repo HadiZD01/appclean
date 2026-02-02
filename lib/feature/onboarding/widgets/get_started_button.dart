@@ -22,7 +22,7 @@ class GetStartedButton extends StatelessWidget {
       onPressed: () {
         context.pushNamed(Routes.loginscreen);
       },
-      child: Text('Get Started', style: TextStyles.font16white500weight),
+      child: Text('Get Started', style: TextStyles.font16whitemedium),
     );
   }
 }
