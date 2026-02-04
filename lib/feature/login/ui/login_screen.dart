@@ -70,11 +70,14 @@ void ValidateThenDoLogin(BuildContext context) {
   final formkey = context.read<LoginCubit>().formkey;
   if (formkey.currentState!.validate()) {
     // Proceed with login
-    context.read<LoginCubit>().emitloginState(
-      LoginReqeustBody(
-        email: context.read<LoginCubit>().emailController.text,
-        password: context.read<LoginCubit>().passwordController.text,
-      ),
-    );
+
+    context.read<LoginCubit>().emitloginState();
+
+    // context.read<LoginCubit>().emitloginState(
+    //   LoginReqeustBody(
+    //     email: context.read<LoginCubit>().emailController.text,
+    //     password: context.read<LoginCubit>().passwordController.text,
+    //   ),
+    // );
   }
 }

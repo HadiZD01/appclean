@@ -2,6 +2,7 @@ import 'package:appclean/core/helpers/extensions.dart';
 import 'package:appclean/core/routing/app_router.dart';
 import 'package:appclean/core/routing/routes.dart';
 import 'package:appclean/core/theming/colors.dart';
+import 'package:appclean/core/theming/styles.dart';
 import 'package:appclean/feature/login/logic/cubit/login_cubit.dart';
 import 'package:appclean/feature/login/logic/cubit/login_state.dart';
 import 'package:flutter/material.dart';
@@ -34,12 +35,25 @@ class LoginBlocListener extends StatelessWidget {
             context.pushNamed(Routes.homescreen);
           },
           failure: (errorMessage) => {
-            // Dismiss loading indicator
             context.pop(),
-            // Show error message
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(errorMessage))),
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                icon: const Icon(Icons.error, color: Colors.red, size: 32),
+                content: Text(
+                  errorMessage,
+                  style: TextStyles.font15DarkBlueMedium,
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      context.pop();
+                    },
+                    child: Text('Got it', style: TextStyles.font14BlueSemiBold),
+                  ),
+                ],
+              ),
+            ),
           },
         );
       },
