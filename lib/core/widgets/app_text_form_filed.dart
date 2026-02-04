@@ -13,6 +13,8 @@ class AppTextFormFiled extends StatelessWidget {
   final TextStyle? hintStyle;
   final TextStyle? inputTextStyle;
   final Color? BackgroundColor;
+  final TextEditingController? controller;
+  final Function(String)? validator;
   const AppTextFormFiled({
     super.key,
     this.contentPadding,
@@ -24,11 +26,13 @@ class AppTextFormFiled extends StatelessWidget {
     this.hintStyle,
     this.inputTextStyle,
     this.BackgroundColor,
+    this.controller,
+    required this.validator,
   });
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
         fillColor: BackgroundColor ?? ColorsApp.morelighgray,
@@ -36,7 +40,14 @@ class AppTextFormFiled extends StatelessWidget {
         contentPadding:
             contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 1.3),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 1.3),
+          borderRadius: BorderRadius.circular(16),
+        ),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
@@ -54,6 +65,9 @@ class AppTextFormFiled extends StatelessWidget {
         suffixIcon: suffixIcon,
       ),
       style: inputTextStyle ?? TextStyles.font14Darkbluemedium,
+      validator: (value) {
+        return validator!(value!);
+      },
     );
   }
 }

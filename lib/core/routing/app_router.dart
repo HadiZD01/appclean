@@ -1,7 +1,11 @@
+import 'package:appclean/core/di/dependency_injection.dart';
 import 'package:appclean/core/routing/routes.dart';
+import 'package:appclean/feature/home/ui/home_screen.dart';
+import 'package:appclean/feature/login/logic/cubit/login_cubit.dart';
 import 'package:appclean/feature/login/ui/login_screen.dart';
 import 'package:appclean/feature/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -9,7 +13,14 @@ class AppRouter {
       case Routes.onboardingscreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.loginscreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
+      case Routes.homescreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       // Define your routes here
       default:
         return MaterialPageRoute(
