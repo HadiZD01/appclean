@@ -3,6 +3,7 @@
 <plist version="1.0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
 	<dict>
@@ -54,6 +55,8 @@
 	</dict>
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> devlopment
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -99,7 +102,10 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 </dict>
+<<<<<<< HEAD
 >>>>>>> ce1324508197ebc3d8bb391ffed1559e456be913
 =======
 >>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
+=======
+>>>>>>> devlopment
 </plist>

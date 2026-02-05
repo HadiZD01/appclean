@@ -18,6 +18,7 @@
                         <subviews>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="LaunchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Dq-wcI"/>
@@ -35,6 +36,8 @@
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xPn-NY-SIU"/>
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> devlopment
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4">
                             </imageView>
                         </subviews>
@@ -42,9 +45,12 @@
                         <constraints>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1a2-6s-vTC"/>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4X2-HB-R7a"/>
+<<<<<<< HEAD
 >>>>>>> ce1324508197ebc3d8bb391ffed1559e456be913
 =======
 >>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
+=======
+>>>>>>> devlopment
                         </constraints>
                     </view>
                 </viewController>
@@ -56,6 +62,7 @@
     <resources>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <image name="LaunchImage" width="1500" height="3248"/>
         <image name="LaunchBackground" width="1" height="1"/>
 =======
@@ -65,5 +72,8 @@
         <image name="LaunchImage" width="1500" height="3248"/>
         <image name="LaunchBackground" width="1" height="1"/>
 >>>>>>> 9991aeab38b7abe4a5296565a9333dc190667a3c
+=======
+        <image name="LaunchImage" width="168" height="185"/>
+>>>>>>> devlopment
     </resources>
 </document>
