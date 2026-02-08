@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "518238311421",
+    "project_id": "docdocappdistribution",
+    "storage_bucket": "docdocappdistribution.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518238311421:android:5d0d1165f7528ad1ae7f94",
+        "android_client_info": {
+          "package_name": "com.example.appclean"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiClgtxdMoKd7yni70aYP8Hhh8yTv5Kzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
