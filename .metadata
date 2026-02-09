@@ -15,6 +15,8 @@ migration:
     - platform: root
       create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
       base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+<<<<<<< HEAD
+=======
     - platform: android
       create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
       base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
@@ -30,6 +32,7 @@ migration:
     - platform: web
       create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
       base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+>>>>>>> devlopment
     - platform: windows
       create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
       base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
