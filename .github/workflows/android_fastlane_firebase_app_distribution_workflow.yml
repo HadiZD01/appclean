@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout my repo code
-      uses: actions/checkout@v3
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/checkout@v2
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
       with:
-        java-version: '17'
+        java-version: '11'
         distribution: 'temurin'
     
     - name: Install Flutter
@@ -26,17 +26,13 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.3"
+        ruby-version: "3.2.3"
         bundler-cache: true
         working-directory: android
         
     - name: Build and Distribute App
       env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+        FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
       run: |
-        # التأكد من تثبيت الـ Bundler والـ Gems الخاصة بـ Fastlane
-        bundle install
-        # تشغيل الـ Lane الذي قمنا بتصحيح اسمه
         bundle exec fastlane android firebase_distribution
       working-directory: android
