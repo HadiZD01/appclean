@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout my repo code
-      uses: actions/checkout@v3 # تحديث للإصدار v3 الأسرع والأكثر استقراراً
+      uses: actions/checkout@v3
 
-    - name: Set up JDK 17 # يفضل استخدام 17 لإصدارات Gradle الحديثة في فلاتر
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
@@ -26,15 +26,17 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.3" # رفع الإصدار لضمان حل مشكلة Exit Code 5 نهائياً
+        ruby-version: "3.3"
         bundler-cache: true
         working-directory: android
         
     - name: Build and Distribute App
       env:
-        # ملاحظة هامة جداً: يجب وضع الأقواس المتعرجة المزدوجة ${{ }}
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }} # أضفت هذا لأنك تستخدمه في Fastfile
+        FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
       run: |
+        # التأكد من تثبيت الـ Bundler والـ Gems الخاصة بـ Fastlane
+        bundle install
+        # تشغيل الـ Lane الذي قمنا بتصحيح اسمه
         bundle exec fastlane android firebase_distribution
       working-directory: android
