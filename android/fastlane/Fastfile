@@ -13,7 +13,7 @@ platform :android do
         app: "1:518238311421:android:5d0d1165f7528ad1ae7f94",
         firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
         android_artifact_type: "APK",
-        android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+        android_artifact_path: "..\build\app\outputs\flutter-apk\app-production-release.apk",
         testers: "zidanihadi259@gmail.com",
         release_notes: "Testing something with GitHub Actions, trying to push directly from master branch",
   )
