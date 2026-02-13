@@ -123,4 +123,16 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsApp.mainblue,
   );
+
+    static TextStyle font18DarkBlueBold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsApp.DarkBlue,
+  );
+
+    static TextStyle font12GrayRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsApp.gray,
+  );
 }
