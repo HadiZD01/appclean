@@ -142,9 +142,27 @@ class TextStyles {
     color: Colors.white,
   );
 
-  static TextStyle font12BlueRegular=TextStyle(
+  static TextStyle font12BlueRegular = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsApp.mainblue,
+  );
+
+  static TextStyle font18DarkblueSemiBold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsApp.DarkBlue,
+  );
+
+  static TextStyle font12DarkblueRegular = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsApp.DarkBlue,
+  );
+
+  static TextStyle font12GrayMedium = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsApp.gray,
   );
 }
