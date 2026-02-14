@@ -1,8 +1,11 @@
+// 
+
 import 'package:appclean/core/routing/app_router.dart';
 import 'package:appclean/core/routing/routes.dart';
 import 'package:appclean/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:device_preview/device_preview.dart'; // لا تنسَ هذا الاستيراد
 
 class DocApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -12,15 +15,26 @@ class DocApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: ColorsApp.mainblue,
-          scaffoldBackgroundColor: Colors.white,
-        ),
-        initialRoute: Routes.onboardingscreen,
-        onGenerateRoute: appRouter.generateRoute,
-      ),
+      minTextAdapt: true,
+      // نستخدم الـ builder هنا لضمان تمرير الـ Context بشكل سليم
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          
+          // --- إعدادات Device Preview الأساسية ---
+          useInheritedMediaQuery: true, // مهم جداً لاستجابة التصميم
+          locale: DevicePreview.locale(context), // لتغيير لغة المحاكي
+          builder: DevicePreview.appBuilder, // لبناء إطار الجهاز حول التطبيق
+          // ---------------------------------------
+
+          theme: ThemeData(
+            primaryColor: ColorsApp.mainblue,
+            scaffoldBackgroundColor: Colors.white,
+          ),
+          initialRoute: Routes.onboardingscreen,
+          onGenerateRoute: appRouter.generateRoute,
+        );
+      },
     );
   }
 }
