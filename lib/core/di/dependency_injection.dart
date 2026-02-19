@@ -1,5 +1,8 @@
 import 'package:appclean/core/networking/api_service.dart';
 import 'package:appclean/core/networking/dio_factory.dart';
+import 'package:appclean/feature/home/data/apis/home_api_service.dart';
+import 'package:appclean/feature/home/data/repos/home_repo.dart';
+import 'package:appclean/feature/home/logique/home_cubit.dart';
 import 'package:appclean/feature/login/data/repos/login_repo.dart';
 import 'package:appclean/feature/login/logic/cubit/login_cubit.dart';
 import 'package:appclean/feature/signup/data/repos/sign_up_repo.dart';
@@ -22,4 +25,9 @@ Future<void> setupDependencyInjection() async {
   //for signup
   getIt.registerSingleton<SignUpRepo>(SignUpRepo(getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
+
+  //for Home
+  getIt.registerSingleton<HomeApiService>(HomeApiService(dio));
+  getIt.registerSingleton<HomeRepo>(HomeRepo(getIt()));
+  // getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 }

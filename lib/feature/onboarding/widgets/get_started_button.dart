@@ -20,9 +20,10 @@ class GetStartedButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        context.pushNamed(Routes.homescreen);
+        context.pushNamed(Routes.loginscreen);
       },
       child: Text('Get Started', style: TextStyles.font16whitemedium),
     );
   }
 }
+
