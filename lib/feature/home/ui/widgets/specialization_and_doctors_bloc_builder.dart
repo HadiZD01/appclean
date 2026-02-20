@@ -2,7 +2,9 @@ import 'package:appclean/core/helpers/spacing.dart';
 import 'package:appclean/feature/home/logique/home_cubit.dart';
 import 'package:appclean/feature/home/logique/home_state.dart';
 import 'package:appclean/feature/home/ui/widgets/doctor_list_view.dart';
+import 'package:appclean/feature/home/ui/widgets/doctors_shimmer_loading.dart';
 import 'package:appclean/feature/home/ui/widgets/doctors_speaciality_list.dart';
+import 'package:appclean/feature/home/ui/widgets/speciality_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,9 +19,8 @@ class SpecializationAndDoctorsBlocBuilder extends StatelessWidget {
           specializationLoading: () {
             return setUpLoading();
           },
-          specializationSuccess: (specializationsResponseModel) {
-            var specializationList =
-                specializationsResponseModel.specializationDataList;
+          specializationSuccess: (specializationDataList) {
+            var specializationList = specializationDataList;
             return setUpSuccess(specializationList);
           },
           specializationError: (errorHandler) {
@@ -35,24 +36,19 @@ class SpecializationAndDoctorsBlocBuilder extends StatelessWidget {
 }
 
 Widget setUpLoading() {
-  return const SizedBox(
-    height: 100,
-    child: Center(child: CircularProgressIndicator()),
+  return Expanded(
+    child: Column(
+      children: [
+        SpecialityShimmerLoading(),
+        verticalSpace(8),
+        DoctorsShimmerLoading(),
+      ],
+    ),
   );
 }
 
 Widget setUpSuccess(specializationList) {
-  return Expanded(
-    child: Column(
-      children: [
-        DoctorsSpeacialityList(specializationData: specializationList ?? []),
-        verticalSpace(24),
-        DoctorListView(
-          doctorsList: specializationList?.first?.doctorsList ?? [],
-        ),
-      ],
-    ),
-  );
+  return DoctorsSpeacialityList(specializationData: specializationList ?? []);
 }
 
 Widget setUpError() {

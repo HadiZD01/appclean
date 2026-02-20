@@ -1,4 +1,5 @@
 import 'package:appclean/core/helpers/spacing.dart';
+import 'package:appclean/feature/home/ui/widgets/doctors_bloc_builder.dart';
 import 'package:appclean/feature/home/ui/widgets/doctors_blue_container.dart';
 import 'package:appclean/feature/home/ui/widgets/doctors_speaciality_see_all.dart';
 import 'package:appclean/feature/home/ui/widgets/home_top_bar.dart';
@@ -25,6 +26,8 @@ class HomeScreen extends StatelessWidget {
               DoctorsSpeacialitySeeAll(),
               verticalSpace(24),
               SpecializationAndDoctorsBlocBuilder(),
+              verticalSpace(8),
+              DoctorsBlocBuilder(),
               // DoctorsSpeacialityList(),
               // verticalSpace(24),
               // DoctorListView(),
