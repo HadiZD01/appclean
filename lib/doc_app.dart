@@ -1,5 +1,6 @@
-// 
+//
 
+import 'package:appclean/core/helpers/constants.dart';
 import 'package:appclean/core/routing/app_router.dart';
 import 'package:appclean/core/routing/routes.dart';
 import 'package:appclean/core/theming/colors.dart';
@@ -20,18 +21,20 @@ class DocApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          
+
           // --- إعدادات Device Preview الأساسية ---
           useInheritedMediaQuery: true, // مهم جداً لاستجابة التصميم
           locale: DevicePreview.locale(context), // لتغيير لغة المحاكي
           builder: DevicePreview.appBuilder, // لبناء إطار الجهاز حول التطبيق
-          // ---------------------------------------
 
+          // ---------------------------------------
           theme: ThemeData(
             primaryColor: ColorsApp.mainblue,
             scaffoldBackgroundColor: Colors.white,
           ),
-          initialRoute: Routes.onboardingscreen,
+          initialRoute: isLoggedIn
+              ? Routes.homescreen
+              : Routes.onboardingscreen,
           onGenerateRoute: appRouter.generateRoute,
         );
       },

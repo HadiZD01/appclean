@@ -165,4 +165,10 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     color: ColorsApp.gray,
   );
+
+  static TextStyle font14DarkblueBold = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsApp.DarkBlue,
+  );
 }

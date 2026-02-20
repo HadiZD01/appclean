@@ -1,5 +1,8 @@
-// 
+//
 import 'package:appclean/core/di/dependency_injection.dart';
+import 'package:appclean/core/helpers/constants.dart';
+import 'package:appclean/core/helpers/extensions.dart';
+import 'package:appclean/core/helpers/shared_pref_helper.dart';
 import 'package:appclean/core/routing/app_router.dart';
 import 'package:appclean/doc_app.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +13,24 @@ import 'package:flutter/foundation.dart'; // مهم من أجل kReleaseMode
 void main() async {
   // تأكد من تهيئة الـ Widgets قبل أي عمليات async
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   setupDependencyInjection();
   await ScreenUtil.ensureScreenSize();
-
+  await checkedIfLoggedInUser();
   runApp(
     DevicePreview(
       // سيعمل فقط في وضع الـ Debug ولن يظهر في النسخة النهائية
-      enabled: !kReleaseMode, 
+      enabled: !kReleaseMode,
       builder: (context) => DocApp(appRouter: AppRouter()),
     ),
   );
+}
+
+checkedIfLoggedInUser() async {
+  String userToken = await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  if (userToken.isNullOrEmpty()) {
+    isLoggedIn = false;
+  } else {
+    isLoggedIn = true;
+  }
 }
