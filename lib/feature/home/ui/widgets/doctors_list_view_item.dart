@@ -2,11 +2,10 @@ import 'package:appclean/core/helpers/spacing.dart';
 import 'package:appclean/core/theming/colors.dart';
 import 'package:appclean/core/theming/styles.dart';
 import 'package:appclean/feature/home/data/specialization_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctors? doctorsModel;
@@ -32,7 +31,7 @@ class DoctorsListViewItem extends StatelessWidget {
           // ),
           CachedNetworkImage(
             imageUrl:
-                "assets/images/doctor_pattern.png",
+                "https://dohaclinichospital.com/assets/images/uploads/doctors/MY_1688548814.jpg",
             progressIndicatorBuilder: (context, url, downloadProgress) {
               return Shimmer.fromColors(
                 baseColor: ColorsApp.lighgray,
