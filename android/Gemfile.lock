@@ -124,7 +124,7 @@ GEM
     fastlane-sirp (1.0.0)
       sysrandom (~> 1.0)
     gh_inspector (1.1.3)
-    google-apis-androidpublisher_v3 (0.95.0)
+    google-apis-androidpublisher_v3 (0.96.0)
       google-apis-core (>= 0.15.0, < 2.a)
     google-apis-core (0.18.0)
       addressable (~> 2.5, >= 2.5.1)
@@ -142,7 +142,7 @@ GEM
       google-apis-core (>= 0.15.0, < 2.a)
     google-apis-playcustomapp_v1 (0.17.0)
       google-apis-core (>= 0.15.0, < 2.a)
-    google-apis-storage_v1 (0.59.0)
+    google-apis-storage_v1 (0.60.0)
       google-apis-core (>= 0.15.0, < 2.a)
     google-cloud-core (1.8.0)
       google-cloud-env (>= 1.0, < 3.a)
@@ -234,6 +234,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   fastlane
@@ -282,13 +283,13 @@ CHECKSUMS
   fastlane-plugin-firebase_app_distribution (0.10.1) sha256=f25628bf390c550d10dfa5136a3de073d322dc5ed9e1bcb168e6068e6d9a07ba
   fastlane-sirp (1.0.0) sha256=66478f25bcd039ec02ccf65625373fca29646fa73d655eb533c915f106c5e641
   gh_inspector (1.1.3) sha256=04cca7171b87164e053aa43147971d3b7f500fcb58177698886b48a9fc4a1939
-  google-apis-androidpublisher_v3 (0.95.0) sha256=6e7fe2afef49f2b43ee3dadb0b91a553928fac3816024ded54224af783e2f2ea
+  google-apis-androidpublisher_v3 (0.96.0) sha256=9e27b03295fdd2c4a67b5e4d11f891492c89f73beff4a3f9323419165a56d01c
   google-apis-core (0.18.0) sha256=96b057816feeeab448139ed5b5c78eab7fc2a9d8958f0fbc8217dedffad054ee
   google-apis-firebaseappdistribution_v1 (0.3.0) sha256=128f4e9e01fea0719f49f4460c72bc735faa2e7db5450ffde21866ff39a3680d
   google-apis-firebaseappdistribution_v1alpha (0.2.0) sha256=121624c91f716ece8316d5932206acb42cdd3a9584253a42f82ff57f7fa61091
   google-apis-iamcredentials_v1 (0.26.0) sha256=3ff70a10a1d6cddf2554e95b7c5df2c26afdeaeb64100048a355194da19e48a3
   google-apis-playcustomapp_v1 (0.17.0) sha256=d5bc90b705f3f862bab4998086449b0abe704ee1685a84821daa90ca7fa95a78
-  google-apis-storage_v1 (0.59.0) sha256=aa176ebf131c8e382692e5b56c3019596c630ec86caedbc9fe7028c7e78cf538
+  google-apis-storage_v1 (0.60.0) sha256=ad2511b7128344248c2a16adb56ad4b1b48f37d53925455b7b77acccfe75367a
   google-cloud-core (1.8.0) sha256=e572edcbf189cfcab16590628a516cec3f4f63454b730e59f0b36575120281cf
   google-cloud-env (2.1.1) sha256=cf4bb8c7d517ee1ea692baedf06e0b56ce68007549d8d5a66481aa9f97f46999
   google-cloud-errors (1.5.0) sha256=b56be28b8c10628125214dde571b925cfcebdbc58619e598250c37a2114f7b4b
