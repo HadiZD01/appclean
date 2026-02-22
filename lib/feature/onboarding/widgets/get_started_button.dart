@@ -26,3 +26,4 @@ class GetStartedButton extends StatelessWidget {
     );
   }
 }
+

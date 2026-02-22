@@ -1,4 +1,5 @@
 import 'package:appclean/core/helpers/extensions.dart';
+import 'package:appclean/core/networking/api_error_model.dart';
 import 'package:appclean/feature/signup/logic/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,9 +24,7 @@ class SignupBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsApp.mainblue,
-                ),
+                child: CircularProgressIndicator(color: ColorsApp.mainblue),
               ),
             );
           },
@@ -33,8 +32,8 @@ class SignupBlocListener extends StatelessWidget {
             context.pop();
             showSuccessDialog(context);
           },
-          signUpFailure: (error) {
-            setupErrorState(context, error);
+          signUpFailure: (apiErrorModel) {
+            setupErrorState(context, apiErrorModel);
           },
         );
       },
@@ -58,10 +57,12 @@ class SignupBlocListener extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue, disabledForegroundColor: Colors.grey.withOpacity(0.38),
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () {
-                context.pushNamed(Routes.loginscreen);
+                context.pushNamed(Routes.homescreen);
               },
               child: const Text('Continue'),
             ),
@@ -71,29 +72,19 @@ class SignupBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: TextStyles.font15DarkBlueMedium,
-        ),
+        icon: const Icon(Icons.error, color: Colors.red, size: 32),
+        content: Text(apiErrorModel.getAllErrorsMessages(), style: TextStyles.font15DarkBlueMedium),
         actions: [
           TextButton(
             onPressed: () {
               context.pop();
             },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14BlueSemiBold,
-            ),
+            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),
