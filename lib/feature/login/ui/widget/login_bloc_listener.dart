@@ -34,14 +34,14 @@ class LoginBlocListener extends StatelessWidget {
             // Navigate to home screen or another screen
             context.pushNamed(Routes.homescreen);
           },
-          failure: (errorMessage) => {
+          failure: (apiErrorModel) => {
             context.pop(),
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
                 icon: const Icon(Icons.error, color: Colors.red, size: 32),
                 content: Text(
-                  errorMessage,
+                  apiErrorModel.getAllErrorsMessages() ,
                   style: TextStyles.font15DarkBlueMedium,
                 ),
                 actions: [

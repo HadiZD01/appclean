@@ -22,13 +22,13 @@ class HomeCubit extends Cubit<HomeState> {
         getDoctorsList(specializationId: specializationData?.first?.id ?? 0);
         emit(HomeState.specializationSuccess(specializationData));
       },
-      failure: (errorHandler) {
-        emit(HomeState.specializationError(errorHandler));
+      failure: (apiErrorModel) {
+        emit(HomeState.specializationError(apiErrorModel));
       },
     );
   }
 
-  void getDoctorsList({required  specializationId}) async {
+  void getDoctorsList({required specializationId}) async {
     filterDoctorsBySpecialization(specializationId) {
       return specializationData
           ?.firstWhere(
@@ -45,11 +45,7 @@ class HomeCubit extends Cubit<HomeState> {
         specializationDoctorsList!.isNotEmpty) {
       emit(HomeState.doctorsSuccess(specializationDoctorsList));
     } else {
-      emit(
-        HomeState.doctorsError(
-          ErrorHandler.handle('No doctors found for this specialization'),
-        ),
-      );
+      emit(HomeState.doctorsError());
     }
   }
 }
