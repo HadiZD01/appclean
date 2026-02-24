@@ -1,4 +1,24 @@
 
+# default_platform(:android)
+
+# platform :android do
+#   desc "Lane for Android Firebase App Distribution"
+#   lane :firebase_distribution do
+#     sh "flutter clean"
+#     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+
+#     firebase_app_distribution(
+#         app: ENV["FIREBASE_APP_ID"],
+#         firebase_cli_token: ENV["FIREBASE_TOKEN"],
+#         android_artifact_type: "APK",
+#         android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+#         testers: "abdelhakbouzerba019@gmail.com",
+#         release_notes: "New release of the app"
+#   )
+#   end
+# end
+
+
 default_platform(:android)
 
 # To run the lane, execute the following command:
@@ -7,15 +27,25 @@ default_platform(:android)
 platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
+    # 1. تنظيف وتجهيز المشروع وتوليد الملفات الضرورية
     sh "flutter clean"
-    sh "flutter build apk --debug --flavor production --target lib/main_production.dart"
+    sh "flutter pub get"
+    # إضافة السطر التالي لضمان بناء الـ Model الخاص بك (ApiErrorModel)
+    # sh "flutter pub run build_runner build --delete-conflicting-outputs"
+
+    # 2. بناء التطبيق بنمط الـ Release ليتوافق مع المسار المتوقع
+    # تأكد من أن lib/main_production.dart موجود فعلياً
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+
+    # 3. الرفع إلى Firebase باستخدام المتغيرات البيئية (أكثر أماناً)
     firebase_app_distribution(
         app: "1:518238311421:android:5d0d1165f7528ad1ae7f94",
         firebase_cli_token: "1//09eocEZOQJ5PHCgYIARAAGAkSNwF-L9IreFxNyMwz0BSIh9wPKWW32S2rsSV1qcaKyR2q2nrwxPKvLC5PJ1Rdp8tUgygZndPFQho",
         android_artifact_type: "APK",
-        android_artifact_path: "./build/app/outputs/flutter-apk/app-production-release.apk",
-        testers: "zidanihadi259@gmail.com",
-        release_notes: "Testing something with GitHub Actions, trying to push directly from master branch",
-  )
+        # المسار الصحيح لنسخة الـ release والـ flavor المسمى production
+        android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+        testers: "abdelhakbouzerba019@gmail.com",
+        release_notes: "New release of the app - Automated via Fastlane"
+    )
   end
 end
