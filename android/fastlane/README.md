@@ -15,10 +15,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Android
 
-### android firebase_distibution
+### android firebase_distribution
 
 ```sh
-[bundle exec] fastlane android firebase_distibution
+[bundle exec] fastlane android firebase_distribution
 ```
 
 Lane for Android Firebase App Distribution

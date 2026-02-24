@@ -13,21 +13,50 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+# default_platform(:android)
+
+# platform :android do
+#   desc "Lane for Android Firebase App Distribution"
+#   lane :firebase_distribution do
+#     sh "flutter clean"
+#     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+
+#     firebase_app_distribution(
+#         app: ENV["FIREBASE_APP_ID"],
+#         firebase_cli_token: ENV["FIREBASE_TOKEN"],
+#         android_artifact_type: "APK",
+#         android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+#         testers: "abdelhakbouzerba019@gmail.com",
+#         release_notes: "New release of the app"
+#   )
+#   end
+# end
+
+
 default_platform(:android)
 
 platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
+    # 1. تنظيف وتجهيز المشروع وتوليد الملفات الضرورية
     sh "flutter clean"
+    sh "flutter pub get"
+    # إضافة السطر التالي لضمان بناء الـ Model الخاص بك (ApiErrorModel)
+    # sh "flutter pub run build_runner build --delete-conflicting-outputs"
+
+    # 2. بناء التطبيق بنمط الـ Release ليتوافق مع المسار المتوقع
+    # تأكد من أن lib/main_production.dart موجود فعلياً
     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
 
+    # 3. الرفع إلى Firebase باستخدام المتغيرات البيئية (أكثر أماناً)
     firebase_app_distribution(
         app: ENV["FIREBASE_APP_ID"],
         firebase_cli_token: ENV["FIREBASE_TOKEN"],
         android_artifact_type: "APK",
+        # المسار الصحيح لنسخة الـ release والـ flavor المسمى production
         android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
         testers: "abdelhakbouzerba019@gmail.com",
-        release_notes: "New release of the app"
-  )
+        release_notes: "New release of the app - Automated via Fastlane"
+    )
   end
 end
